@@ -1,10 +1,12 @@
 import express from "express";
 
+import { router as loginRouter } from "./routes/login.route";
+
 const app = express();
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
+app.use(express.json());
+
+app.use(loginRouter);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
