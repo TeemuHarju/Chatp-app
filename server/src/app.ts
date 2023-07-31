@@ -1,6 +1,7 @@
 import express from "express";
 
 import { router as loginRouter } from "./routes/login.route";
+import "./env";
 
 const app = express();
 
@@ -8,7 +9,6 @@ app.use(express.json());
 
 app.use(loginRouter);
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server listening at port ${process.env.PORT}`);
 });
